@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+{% if user.is_staff %}
+    <form action="/vacancy/new" method="post">{% csrf_token %}
+        <label for="description">description: </label>
+        <input id="description" type="text" name="description"><br><br>
+        <input type="submit" value="Create"><br><br>
+    </form>
+{% else %}
+    <form action="/resume/new" method="post">{% csrf_token %}
+        <label for="description">description: </label>
+        <input id="description" type="text" name="description"><br><br>
+        <input type="submit" value="Create"><br><br>
+    </form>
+{% endif %}
+</body>
+</html>
